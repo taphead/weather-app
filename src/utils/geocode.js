@@ -4,7 +4,8 @@ const geocode = (address, callback) => {
   const url =
     "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
     address +
-    ".json?access_token=pk.eyJ1IjoiamZhaGV5MDEiLCJhIjoiY202bm5xb28yMHZlbzJxcHY0Ym9xYmNmOCJ9.1CH4jOOKQxQQifN6VAflVg";
+    ".json?access_token=" +
+    process.env.MAPBOX_API_KEY;
   request({ url, json: true }, (error, { body }) => {
     if (error) {
       callback("Unable to connect to location services");
