@@ -1,11 +1,15 @@
+require("dotenv").config();
 const request = require("request");
+
+const { MAPBOX_API_KEY } = require("../../test");
+console.log(MAPBOX_API_KEY);
 
 const geocode = (address, callback) => {
   const url =
     "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
     address +
     ".json?access_token=" +
-    process.env.MAPBOX_API_KEY;
+    MAPBOX_API_KEY;
   request({ url, json: true }, (error, { body }) => {
     if (error) {
       callback("Unable to connect to location services");
