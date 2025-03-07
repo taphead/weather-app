@@ -1,11 +1,12 @@
-require("dotenv").config();
-const { WEATHERSTACK_API_KEY } = require("../../test");
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+console.log(process.env.WEATHERSTACK_API_KEY);
 const request = require("request");
-console.log(WEATHERSTACK_API_KEY);
+
 const forecast = (longitude, latitude, callback) => {
   const url =
     "https://api.weatherstack.com/current?access_key=" +
-    WEATHERSTACK_API_KEY +
+    process.env.WEATHERSTACK_API_KEY +
     "&query=" +
     latitude +
     "," +
