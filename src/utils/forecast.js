@@ -1,6 +1,5 @@
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
-console.log(process.env.WEATHERSTACK_API_KEY);
 const request = require("request");
 
 const forecast = (longitude, latitude, callback) => {

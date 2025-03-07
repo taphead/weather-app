@@ -2,8 +2,6 @@ const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 const request = require("request");
 
-console.log(process.env.MAPBOX_API_KEY);
-
 const geocode = (address, callback) => {
   const url =
     "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
